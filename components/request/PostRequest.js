@@ -7,18 +7,21 @@ import { Button, Card, CardGroup, Container } from 'react-bootstrap';
 export default function PostRequest() {
     const [posts, usePosts] = useState([])
     const router = useRouter()
-    const singlePost =(id)=>{
-    router.push(`/blog/${id}`)
-     
-    }
+    const singlePost = (id) => {
+        router.push(`/blog/${id}`)
 
+    }
+  
+    const request = async () => {
+        const response = await fetch(" http://localhost:1337/posts")
+       const json = await response.json()
+        usePosts(json)
+    };
     useEffect(() => {
-        const request = async () => {
-            const respons = await fetch(" http://localhost:1337/posts")
-            const json = await respons.json()
-            usePosts(json)
-        }
+
         request()
+       
+
     }, [])
 
     return (
@@ -36,7 +39,7 @@ export default function PostRequest() {
                                 <Card.Footer>
                                     <small className="text-muted">date : {new Date(item.date).toISOString().slice(0, 10)}</small>
                                 </Card.Footer>
-                                <Button variant="primary" onClick={()=>singlePost(item.id)}>  
+                                <Button variant="primary" onClick={() => singlePost(item.id)}>
                                     Blog Post
                                 </Button>
                             </Card.Body>
