@@ -13,12 +13,12 @@ export default function PostRequest() {
     }
 
     useEffect(() => {
-        const reqvest = async () => {
+        const request = async () => {
             const respons = await fetch(" http://localhost:1337/posts")
             const json = await respons.json()
             usePosts(json)
         }
-        reqvest()
+        request()
     }, [])
 
     return (
