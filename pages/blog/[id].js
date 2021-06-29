@@ -4,17 +4,17 @@ import { useRouter } from "next/router";
 import { Button, Card,Container } from 'react-bootstrap';
 import { MainLayoult } from '../../components/navBar/MainLayoult';
 
-export default function index() {
+export default function Index() {
     const [post, usePost] = useState({})
     const router = useRouter()
     useEffect(() => {
-        const reqvest = async () => {
+        const request = async () => {
             const respons = await fetch(` http://localhost:1337/posts?id=${router.query.id}`)
             const json = await respons.json()
             usePost(json[0])
            
         }
-        reqvest()
+        request()
     }, [])
     
    
