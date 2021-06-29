@@ -1,0 +1,27 @@
+.navBox {
+    position: fixed;
+    background: rgba(105, 105, 105, 0.781);
+    margin: 0;
+    width: -webkit-fill-available;
+}
+
+.navBox > li{
+    display: inline-block;
+    list-style-type: none;
+    
+}
+
+.navBox > li :hover{
+    background: #0000003d;
+
+}
+.navBox >li> a{
+    display: inline-block;
+    padding: 20px;
+    color: #fff;
+}
+.active{
+    background: #0000003d; 
+}
+
+
