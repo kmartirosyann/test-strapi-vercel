@@ -12,14 +12,14 @@ export default function PostRequest() {
 
     }
   
-    const request = async () => {
+    const Request = async () => {
         const response = await fetch(" http://localhost:1337/posts")
        const json = await response.json()
         usePosts(json)
     };
     useEffect(() => {
 
-        request()
+        Request()
        
 
     }, [])
